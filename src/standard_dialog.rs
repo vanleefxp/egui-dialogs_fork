@@ -314,7 +314,7 @@ where
 
                 ui.horizontal_top(|ui| {
                     const IMAGE_WIDTH: f32 = 48.;
-                    
+
                     if let Some(image) = image {
                         ui.add(
                             Image::new(image.clone())
@@ -376,7 +376,7 @@ pub fn dialog_window<'open>(
     dctx: &DialogContext,
     title: impl Into<WidgetText>,
 ) -> egui::Window<'open> {
-    let frame = egui::Frame::window(&ctx.style()).inner_margin(16.);
+    let frame = egui::Frame::window(&ctx.global_style()).inner_margin(16.);
 
     let mut window = egui::Window::new(title.into())
         .collapsible(false)

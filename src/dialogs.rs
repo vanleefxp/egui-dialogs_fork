@@ -455,8 +455,8 @@ impl Dialogs<'_> {
             let mut response = DialogResponse { id, reply: None };
 
             let outer_style = if let Some(ref style) = self.style {
-                let outer_style = ctx.style();
-                ctx.set_style(Arc::clone(style));
+                let outer_style = ctx.global_style();
+                ctx.set_global_style(Arc::clone(style));
                 Some(outer_style)
             } else {
                 None
@@ -483,7 +483,7 @@ impl Dialogs<'_> {
             }
 
             if let Some(outer_style) = outer_style {
-                ctx.set_style(outer_style);
+                ctx.set_global_style(outer_style);
             }
 
             Some(response)
